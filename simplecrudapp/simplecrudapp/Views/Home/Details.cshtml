@@ -1,0 +1,81 @@
+﻿@model simplecrudapp.Models.employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>employee Detail</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+          @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.City)
+         @Html.DisplayFor(model => model.City)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Salary)
+         @Html.DisplayFor(model => model.Salary)
+    </div>
+  
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address)
+         @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EmailId)
+         @Html.DisplayFor(model => model.EmailId)
+    </div>
+     @{
+                double x = double.Parse(Model.Salary);
+                double hra = x *.10;
+                double da = x * 40 / 100;
+                double cca = x * .50;
+                double gross = x + hra + da + cca;
+      
+       }
+    <fieldset>
+    <legend>Salary Detail</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+          @Html.DisplayFor(model => model.Name)
+    </div>
+
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Salary)
+         @Html.DisplayFor(model => model.Salary)
+    </div>
+    <div class="display-label">
+         HRA:
+         @hra
+    </div>
+        <div class="display-label">
+         DA:
+         @da
+    </div>
+        <div class="display-label">
+         CCA:
+         @cca
+    </div>
+        </div>
+        <div class="display-label">
+         Gross:
+         @gross
+    </div>
+  
+</fieldset>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
